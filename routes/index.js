@@ -5,6 +5,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-
+router.get('/', function(req, res, next) {
+  value++;
+  res.send(`user accessess are : ${value}`);
+});
 module.exports = router;
-

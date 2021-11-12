@@ -8,28 +8,28 @@ block content
             -
                 let pen   = [
                     {
-                        "color": "Blue",
-                        "ink_color": "Red",
-                        "cost": "10$"
-                    },
-                    {
-                        "color": "Pink",
+                        "type": "Pinpoint",
                         "ink_color": "Blue",
-                        "cost": "12$"
+                        "cost": "20"
                     },
                     {
-                        "color": "Red",
-                        "ink_color": "Green",
-                        "cost": "9$"
+                        "type": "Reynolds",
+                        "ink_color": "green",
+                        "cost": "100"
+                    },
+                    {
+                        "type": "Rollerball Pen",
+                        "ink_color": "black",
+                        "cost": "250"
                     }, 
                     {
-                        "color": "Grey",
-                        "ink_color": "Black",
-                        "cost": "29$"
+                        "type": "Ink Pen",
+                        "ink_color": "red",
+                        "cost": "300"
                     },                         
                 ]
             each v,index in pen  
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.type}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.ink_color}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.cost}
         script. 

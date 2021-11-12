@@ -1,5 +1,5 @@
-{
-  "name": "fwb43somarouthu",
+{  
+  "name": "db43somarouthu",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
+    "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
