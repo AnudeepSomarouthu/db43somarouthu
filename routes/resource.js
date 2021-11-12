@@ -8,24 +8,24 @@ var pen_controller = require('../controllers/pen');
 /// API ROUTE /// 
  
 // GET resources base. 
-router.get('/', api_controller.api); 
+router.get('/resource', api_controller.api); 
  
 /// pen ROUTES /// 
  
 // POST request for creating a pen.  
-router.post('/pen', pen_controller.pen_create_post); 
+router.post('/resource/pens', pen_controller.pen_create_post); 
  
 // DELETE request to delete pen. 
-router.delete('/pens/:id', pen_controller.pen_delete); 
+router.delete('/resource/pen/:id', pen_controller.pen_delete); 
  
 // PUT request to update pen. 
-router.put('/pens/:id', 
+router.put('/resource/pens/:id', 
 pen_controller.pen_update_put); 
  
 // GET request for one pen. 
-router.get('/pens/:id', pen_controller.pen_detail); 
+router.get('/resource/pens/:id', pen_controller.pen_detail); 
  
 // GET request for list of all pen items. 
-router.get('/pen', pen_controller.pen_list); 
+router.get('/resource/pen', pen_controller.pen_list); 
  
 module.exports = router; 

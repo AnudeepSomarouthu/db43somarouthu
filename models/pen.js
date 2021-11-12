@@ -1,4 +1,8 @@
 const mongoose = require("mongoose") 
-const penSchema = mongoose.Schema({  type: String,  ink_color: String,  cost: Number }) 
+const penSchema = mongoose.Schema({  
+    type: String,  
+    ink_color: String,  
+    cost: Number 
+}); 
  
-module.exports = mongoose.model("pen", penSchema) 
+module.exports = mongoose.model("Pen", penSchema); 

@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var pen = require("./models/pen");
+var pen = require('./models/pen');
 
 const connectionString =  
 process.env.MONGO_CON;
@@ -12,15 +12,21 @@ mongoose.connect(connectionString,
 {useNewUrlParser: true, 
 useUnifiedTopology: true}); 
 
+//Get the default connection 
+var db = mongoose.connection; 
  
+//Bind connection to error event  
+db.on('error', console.error.bind(console, 'MongoDB connection error:')); 
+db.once("open", function(){ 
+ console.log("Connection to DB succeeded")}); 
 
 async function recreateDB(){ 
   // Delete everything 
   await pen.deleteMany(); 
  
   let instance1 = new 
-pen({type:"Pinpoint",  ink_colour:'blue', 
-cost:20}); 
+  pen({type:"Pinpoint",  ink_colour:'blue', 
+  cost:20}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
@@ -32,9 +38,9 @@ cost:20});
         if(err) return console.error(err); 
         console.log("Second object saved") 
     }); 
-    let instance3 = new 
-pen({type:"Rollerball Pen",  ink_color:'black', 
-cost:250}); 
+  let instance3 = new 
+  pen({type:"Rollerball Pen",  ink_color:'black', 
+  cost:250}); 
   instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("Third object saved") 
@@ -75,7 +81,7 @@ app.use('/users', usersRouter);
 app.use('/pen', penRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
-app.use('/resource', resourceRouter);
+app.use('/', resourceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

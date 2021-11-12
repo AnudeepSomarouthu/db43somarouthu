@@ -1,9 +1,9 @@
-var pen = require('../models/pen'); 
+var Pen = require('../models/pen'); 
  
 // List of all Costumes 
 exports.pen_list = async function(req, res) { 
         try{ 
-            let pen = await pen.find(); 
+            let pen = await Pen.find(); 
             res.send(pen); 
         } 
         catch(err){ 
@@ -15,7 +15,7 @@ exports.pen_list = async function(req, res) {
 // Handle a show all view 
 exports.pen_view_all_Page = async function(req, res) { 
     try{ 
-        let pens = await pen.find(); 
+        let pens = await Pen.find(); 
         res.render('pen', { title: 'pen Search Results', results: pens }); 
     } 
     catch(err){ 
@@ -40,7 +40,7 @@ exports.pen_update_put = function(req, res) {
 // Handle Costume create on POST. 
 exports.pen_create_post = async function(req, res) { 
     console.log(req.body) 
-    let document = new pen(); 
+    let document = new Pen(); 
     // We are looking for a body, since POST does not have query parameters. 
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object 
