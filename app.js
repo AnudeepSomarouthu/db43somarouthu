@@ -39,8 +39,8 @@ async function recreateDB(){
         console.log("Second object saved") 
     }); 
   let instance3 = new 
-  pen({type:"Rollerball Pen",  ink_color:'black', 
-  cost:250}); 
+  pen({type:"Oily Pen",  ink_color:'crape', 
+  cost:220}); 
   instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("Third object saved") 
