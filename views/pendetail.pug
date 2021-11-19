@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+   if (toShow == null) 
+    h2 No instance to delete 
+  else  
+  - let penid = toShow._id   
+  - let type  = toShow.type
+  - let cost = toShow.cost  
+  div 
+    div.row 
+      div(class='penAttr mr-3') Pen   ID is: 
+      div #{penid}  
+    div.row 
+      div(class='penAttr mr-3') Type  is: 
+      div #{type} 
+    div.row 
+      div(class='penAttr mr-3') Pen  cost: 
+      div #{cost} 
+
+

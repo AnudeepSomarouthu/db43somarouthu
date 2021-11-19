@@ -1,0 +1,45 @@
+extends layout 
+ 
+block content 
+  h1= title 
+   if (toShow == null) 
+    h2 No instance to delete 
+  else  
+  - let id = toShow.id 
+  - let type = toShow.type 
+  - let ink_color  = toShow.ink_color 
+  - let cost = toShow.cost
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{id} 
+  - let actionid = "/resource/pens/" + id 
+  form(id='penForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.penAttr(for='type') Type
+        input#type(type='text', name='type', value= type  ) 
+    div.form-group 
+        label.penAttr(for='ink_color') Ink_color  
+        input#ink_color(type='text', name='ink_color', value= ink_color  ) 
+    div.form-group 
+        label.penAttr(for='cost')  cost 
+        input#cost(type='number', name='cost', value= cost ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['penForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => { 
+        return resp.text(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 
